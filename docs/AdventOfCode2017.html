@@ -8,7 +8,7 @@
     <title>AdventOfCode2017 – Advent of Code 2017 Solutions by @bericp1 v0.1.0</title>
     <link rel="stylesheet" href="dist/app-480ffdc169.css" />
     
-    <script src="dist/sidebar_items-b0ade282a0.js"></script>
+    <script src="dist/sidebar_items-e0025969fe.js"></script>
     
     
     
@@ -122,10 +122,10 @@
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#process_result/1">process_result(fwd)</a>
+    <a href="#process_result/1">process_result(result)</a>
   </div>
   
-    <div class="summary-synopsis"><p>Forward all other selection results straight through without transforming them</p>
+    <div class="summary-synopsis"><p>Process a result from <a href="#process_selection/1"><code class="inline">process_selection/1</code></a> for use in <a href="#loop/0"><code class="inline">loop/0</code></a></p>
 </div>
   
 </div>
@@ -134,16 +134,7 @@
     <a href="#process_selection/1">process_selection(selection)</a>
   </div>
   
-    <div class="summary-synopsis"><p>Handle number selection by running and returning the result of the corrresponding day</p>
-</div>
-  
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#run/0">run()</a>
-  </div>
-  
-    <div class="summary-synopsis"><p>Error case when no day is provided</p>
+    <div class="summary-synopsis"><p>Process a selection received from <a href="#select/0"><code class="inline">select/0</code></a></p>
 </div>
   
 </div>
@@ -195,12 +186,18 @@
     </a>
     <span class="signature">loop()</span>
     
-      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017.ex#L75" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017.ex#L102" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
     
     
+    
+      <div class="specs">
+        
+          <pre>loop() :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()</pre>
+        
+      </div>
     
   </div>
   <section class="docstring">
@@ -225,7 +222,7 @@
     </a>
     <span class="signature">main(args)</span>
     
-      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017.ex#L90" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017.ex#L117" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -246,18 +243,34 @@
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">process_result(fwd)</span>
+    <span class="signature">process_result(result)</span>
     
-      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017.ex#L65" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017.ex#L91" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
     
     
     
+      <div class="specs">
+        
+          <pre>process_result(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">tuple</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>()</pre>
+        
+      </div>
+    
   </div>
   <section class="docstring">
-    <p>Forward all other selection results straight through without transforming them.</p>
+    <p>Process a result from <a href="#process_selection/1"><code class="inline">process_selection/1</code></a> for use in <a href="#loop/0"><code class="inline">loop/0</code></a>.</p>
+<p><code class="inline">result</code> should be one of the following:</p>
+<ul>
+<li><code class="inline">{:ok, message}</code>: run completed successfully and has a message to share with the user. Loop should continue.
+</li>
+<li><code class="inline">{:error, message}</code>: run failed for some reason and has a message about the error to share with the user.
+Loop should continue.
+</li>
+<li>Anything else (e.g. <code class="inline">:bail</code> or <code class="inline">:continue</code>) will be returned directly.
+</li>
+</ul>
 
   </section>
 </div>
@@ -271,39 +284,29 @@
     </a>
     <span class="signature">process_selection(selection)</span>
     
-      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017.ex#L36" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017.ex#L48" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
     
     
     
-  </div>
-  <section class="docstring">
-    <p>Handle number selection by running and returning the result of the corrresponding day</p>
-
-  </section>
-</div>
-<div class="detail" id="run/0">
-  
-  
-  <div class="detail-header">
-    <a href="#run/0" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <span class="signature">run()</span>
-    
-      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017.ex#L28" class="view-source" rel="help" title="View Source">
-       <span class="icon-code" aria-hidden="true"></span>
-       <span class="sr-only">View Source</span>
-     </a>
-    
-    
+      <div class="specs">
+        
+          <pre>process_selection(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">charlist</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">tuple</a>()</pre>
+        
+      </div>
     
   </div>
   <section class="docstring">
-    <p>Error case when no day is provided.</p>
+    <p>Process a selection received from <a href="#select/0"><code class="inline">select/0</code></a>.</p>
+<p><code class="inline">selection</code> should be one of:</p>
+<ul>
+<li>a valid number matching an implemented advent “day” (a number between 1 and 1)
+</li>
+<li>one of qquitexit
+</li>
+</ul>
 
   </section>
 </div>
@@ -317,12 +320,18 @@
     </a>
     <span class="signature">run(day)</span>
     
-      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017.ex#L20" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017.ex#L24" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
     
     
+    
+      <div class="specs">
+        
+          <pre>run(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">tuple</a>()</pre>
+        
+      </div>
     
   </div>
   <section class="docstring">
@@ -340,16 +349,22 @@
     </a>
     <span class="signature">select()</span>
     
-      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017.ex#L48" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017.ex#L61" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
     
     
     
+      <div class="specs">
+        
+          <pre>select() :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">charlist</a>()</pre>
+        
+      </div>
+    
   </div>
   <section class="docstring">
-    <p>Read in a selection from stdin</p>
+    <p>Read in a selection from stdin.</p>
 
   </section>
 </div>
