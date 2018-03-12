@@ -1,0 +1,384 @@
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.18.3">
+    <title>AdventOfCode2017 – Advent of Code 2017 Solutions by @bericp1 v0.1.0</title>
+    <link rel="stylesheet" href="dist/app-480ffdc169.css" />
+    
+    <script src="dist/sidebar_items-b0ade282a0.js"></script>
+    
+    
+    
+    
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
+
+    <div class="main">
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Sidebar</span>
+</button>
+<button class="sidebar-button night-mode-toggle">
+  <span class="icon-theme" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Theme</span>
+</button>
+<section class="sidebar">
+
+  
+  <a href="AdventOfCode2017.html" class="sidebar-projectLink">
+    <div class="sidebar-projectDetails">
+      <h1 class="sidebar-projectName">
+        Advent of Code 2017 Solutions by @bericp1
+      </h1>
+      <h2 class="sidebar-projectVersion">
+        v0.1.0
+      </h2>
+    </div>
+    
+  </a>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    <input name="q" type="text" id="search-list" class="search-input" placeholder="Search" aria-label="Search" autocomplete="off" />
+  </form>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+    
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+    
+
+    
+
+    
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+
+      <h1>
+        <small class="visible-xs">Advent of Code 2017 Solutions by @bericp1 v0.1.0</small>
+        AdventOfCode2017
+        
+          <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017.ex#L1" title="View Source" class="view-source" rel="help">
+            <span class="icon-code" aria-hidden="true"></span>
+            <span class="sr-only">View Source</span>
+          </a>
+        
+      </h1>
+
+      
+        <section id="moduledoc">
+          <p>A solution set for the advent of code 2017.</p>
+
+        </section>
+      
+
+      
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+          
+
+          
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+    <div class="summary-row">
+  <div class="summary-signature">
+    <a href="#loop/0">loop()</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Main loop. Ask the user what they want to do, process the selection, and process its result</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#main/1">main(args)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Called as the entry point by escript</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#process_result/1">process_result(fwd)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Forward all other selection results straight through without transforming them</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#process_selection/1">process_selection(selection)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Handle number selection by running and returning the result of the corrresponding day</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#run/0">run()</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Error case when no day is provided</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#run/1">run(day)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Run a day’s puzzle by number and executing its run method</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#select/0">select()</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Read in a selection from stdin</p>
+</div>
+  
+</div>
+
+  </div>
+
+
+          
+
+        </section>
+      
+
+      
+
+      
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Functions
+          </h1>
+          <div class="detail" id="loop/0">
+  
+  
+  <div class="detail-header">
+    <a href="#loop/0" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">loop()</span>
+    
+      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017.ex#L75" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Main loop. Ask the user what they want to do, process the selection, and process its result.</p>
+<p>Will accept the following results:</p>
+<ul>
+<li><code class="inline">:bail</code> will bail out of the loop and exit with a zero (successful) status code
+</li>
+<li><code class="inline">:continue</code> will restart the loop
+</li>
+</ul>
+
+  </section>
+</div>
+<div class="detail" id="main/1">
+  
+  
+  <div class="detail-header">
+    <a href="#main/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">main(args)</span>
+    
+      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017.ex#L90" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Called as the entry point by escript.</p>
+
+  </section>
+</div>
+<div class="detail" id="process_result/1">
+  
+  
+  <div class="detail-header">
+    <a href="#process_result/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">process_result(fwd)</span>
+    
+      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017.ex#L65" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Forward all other selection results straight through without transforming them.</p>
+
+  </section>
+</div>
+<div class="detail" id="process_selection/1">
+  
+  
+  <div class="detail-header">
+    <a href="#process_selection/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">process_selection(selection)</span>
+    
+      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017.ex#L36" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Handle number selection by running and returning the result of the corrresponding day</p>
+
+  </section>
+</div>
+<div class="detail" id="run/0">
+  
+  
+  <div class="detail-header">
+    <a href="#run/0" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">run()</span>
+    
+      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017.ex#L28" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Error case when no day is provided.</p>
+
+  </section>
+</div>
+<div class="detail" id="run/1">
+  
+  
+  <div class="detail-header">
+    <a href="#run/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">run(day)</span>
+    
+      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017.ex#L20" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Run a day’s puzzle by number and executing its run method.</p>
+
+  </section>
+</div>
+<div class="detail" id="select/0">
+  
+  
+  <div class="detail-header">
+    <a href="#select/0" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">select()</span>
+    
+      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017.ex#L48" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    <p>Read in a selection from stdin</p>
+
+  </section>
+</div>
+
+        </section>
+      
+
+      
+          <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.18.3),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            </span>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  <script src="dist/app-9bd040e5e5.js"></script>
+  
+  
+  
+  
+  </body>
+</html>
+

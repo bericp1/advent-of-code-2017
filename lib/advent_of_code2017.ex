@@ -27,37 +27,51 @@ defmodule AdventOfCode2017 do
   @doc "Error case when no day is provided."
   def run(), do: {:error, "Must provide a day to run."}
 
-  def process_selection(selection) do
-    if Enum.member?(@bail_strings, selection) do
-      :bail
-    else
-      case Integer.parse(selection) do
-        {day, _} ->
-          run(day)
+  @doc "Handle bail selection"
+  def process_selection(selection) when selection in @bail_strings do
+    :bail
+  end
 
-        _ ->
-          {:error,
-           "Please provide a day in integer format (i.e. '1' === 'Day 1') or `q`/`quit`/`exit` to quit."}
-      end
+  @doc "Handle number selection by running and returning the result of the corrresponding day"
+  def process_selection(selection) do
+    case Integer.parse(selection) do
+      {day, _} ->
+        run(day)
+
+      _ ->
+        {:error,
+         "Please provide a day in integer format (i.e. '1' === 'Day 1') or `q`/`quit`/`exit` to quit."}
     end
   end
 
+  @doc "Read in a selection from stdin"
   def select() do
     IO.gets(:stdio, "\nWhat day should be ran? ") |> String.trim()
   end
 
+  @doc "Process an affirmative selection result by logging the result and signaling to the loop to continue."
   def process_result({:ok, result}) do
     log(result)
     :continue
   end
 
+  @doc "Process an erroneous selection result by logging the error and signaling to the loop to continue."
   def process_result({:error, result}) do
     log_error(result)
     :continue
   end
 
+  @doc "Forward all other selection results straight through without transforming them."
   def process_result(fwd), do: fwd
 
+  @doc """
+  Main loop. Ask the user what they want to do, process the selection, and process its result.
+  
+  Will accept the following results:
+  
+    - `:bail` will bail out of the loop and exit with a zero (successful) status code
+    - `:continue` will restart the loop
+  """
   def loop() do
     case select() |> process_selection() |> process_result() do
       :bail ->
@@ -72,7 +86,8 @@ defmodule AdventOfCode2017 do
     end
   end
 
-  def main(_) do
+  @doc "Called as the entry point by escript."
+  def main(_args) do
     loop()
   end
 end
