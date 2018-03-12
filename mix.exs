@@ -3,11 +3,15 @@ defmodule AdventOfCode2017.MixProject do
 
   def project do
     [
-      app: :advent_of_code_2017,
+      app: :advent_of_code2017,
       version: "0.1.0",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      escript: [
+        main_module: AdventOfCode2017,
+        path: "_build/advent_of_code_2017"
+      ]
     ]
   end
 
