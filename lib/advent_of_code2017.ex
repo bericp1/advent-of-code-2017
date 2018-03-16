@@ -66,6 +66,8 @@ defmodule AdventOfCode2017 do
   @doc """
   Process a result from `process_selection/1` for use in `loop/0`.
 
+  Will produce side effects.
+    
   `result` should be one of the following:
 
     - `{:ok, message}`: run completed successfully and has a message to share with the user. Loop should continue.
