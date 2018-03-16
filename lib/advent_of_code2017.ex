@@ -14,7 +14,7 @@ defmodule AdventOfCode2017 do
   @doc "Run a day's puzzle by number and executing its run method."
   @spec run(integer) :: tuple
   def run(day)
-  
+
   # Error case when an invalid day is provided (negative, 0, or hasn't been implemented yet).
   def run(day) when day > @max_implemented_day or day < 1 do
     {:error, "Please provide a day between 1 and #{@max_implemented_day}"}
@@ -30,15 +30,16 @@ defmodule AdventOfCode2017 do
 
   @doc """
   Process a selection received from `select/0`.
-  
+
   `selection` should be one of:
-  
-    - a valid number matching an implemented advent "day" (a number between 1 and #{@max_implemented_day})
+
+    - a valid number matching an implemented advent "day" (a number between 1 and
+      #{@max_implemented_day})
     - one of #{@bail_strings}
   """
   @spec process_selection(charlist) :: atom | tuple
   def process_selection(selection)
-  
+
   # Handle bail selection
   def process_selection(selection) when selection in @bail_strings do
     :bail
@@ -64,9 +65,9 @@ defmodule AdventOfCode2017 do
 
   @doc """
   Process a result from `process_selection/1` for use in `loop/0`.
-  
+
   `result` should be one of the following:
-  
+
     - `{:ok, message}`: run completed successfully and has a message to share with the user. Loop should continue.
     - `{:error, message}`: run failed for some reason and has a message about the error to share with the user.
       Loop should continue.
@@ -74,7 +75,7 @@ defmodule AdventOfCode2017 do
   """
   @spec process_result(tuple | atom) :: atom
   def process_result(result)
-  
+
   # Process an affirmative selection result by logging the result and signaling to the loop to continue.
   def process_result({:ok, result}) do
     log(result)
@@ -92,9 +93,9 @@ defmodule AdventOfCode2017 do
 
   @doc """
   Main loop. Ask the user what they want to do, process the selection, and process its result.
-  
+
   Will accept the following results:
-  
+
     - `:bail` will bail out of the loop and exit with a zero (successful) status code
     - `:continue` will restart the loop
   """
