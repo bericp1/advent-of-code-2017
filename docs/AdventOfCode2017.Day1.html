@@ -8,7 +8,7 @@
     <title>AdventOfCode2017.Day1 – Advent of Code 2017 Solutions by @bericp1 v0.1.0</title>
     <link rel="stylesheet" href="dist/app-480ffdc169.css" />
     
-    <script src="dist/sidebar_items-88880c14c8.js"></script>
+    <script src="dist/sidebar_items-1592880d39.js"></script>
     
     
     
@@ -29,7 +29,7 @@
 <section class="sidebar">
 
   
-  <a href="AdventOfCode2017.html" class="sidebar-projectLink">
+  <a href="README.html" class="sidebar-projectLink">
     <div class="sidebar-projectDetails">
       <h1 class="sidebar-projectName">
         Advent of Code 2017 Solutions by @bericp1
@@ -104,8 +104,39 @@
     </h2>
     <div class="summary-row">
   <div class="summary-signature">
+    <a href="#at_wraparound/2">at_wraparound(list, index)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p><a href="https://hexdocs.pm/elixir/Enum.html#at/2"><code class="inline">Enum.at/2</code></a> but will wrap around if <code class="inline">index</code> is greater than the <a href="https://hexdocs.pm/elixir/Kernel.html#length/1"><code class="inline">length/1</code></a> of <code class="inline">list</code></p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
     <a href="#byte_to_int/1">byte_to_int(byte)</a>
   </div>
+  
+    <div class="summary-synopsis"><p>Convert a utf8 byte representation of an integer into the integer it represents</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#compare_digits/2">compare_digits(digit_a, digit_b)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Compares two digits and if they are equal, returns their value. Otherwise returns <code class="inline">0</code></p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#compare_digits/3">compare_digits(digits, digit_a, index_b)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Given a list, will compare <code class="inline">digit_a</code> with the digit at <code class="inline">index_b</code>, returning their value if equivleant and <code class="inline">0</code>
+otherwise</p>
+</div>
   
 </div>
 <div class="summary-row">
@@ -113,28 +144,7 @@
     <a href="#run/0">run()</a>
   </div>
   
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#solve/1">solve(digits)</a>
-  </div>
-  
-    <div class="summary-synopsis"><p>Circularly find the sum of all digits that match the next digit in the list</p>
-</div>
-  
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#solve/2">solve(arg1, sum)</a>
-  </div>
-  
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#solve_str/1">solve_str(str)</a>
-  </div>
-  
-    <div class="summary-synopsis"><p>Circularly find the sum of all digits that match the next digit in the string of digits</p>
+    <div class="summary-synopsis"><p>Run the Day 1 puzzle to gather input from the user</p>
 </div>
   
 </div>
@@ -142,6 +152,9 @@
   <div class="summary-signature">
     <a href="#str_to_int_list/1">str_to_int_list(str)</a>
   </div>
+  
+    <div class="summary-synopsis"><p>Convert a string (charlist) to a list of integers</p>
+</div>
   
 </div>
 
@@ -164,7 +177,36 @@
             </a>
             Functions
           </h1>
-          <div class="detail" id="byte_to_int/1">
+          <div class="detail" id="at_wraparound/2">
+  
+  
+  <div class="detail-header">
+    <a href="#at_wraparound/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">at_wraparound(list, index)</span>
+    
+      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017/day1.ex#L119" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>at_wraparound(list :: [...], index :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()</pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p><a href="https://hexdocs.pm/elixir/Enum.html#at/2"><code class="inline">Enum.at/2</code></a> but will wrap around if <code class="inline">index</code> is greater than the <a href="https://hexdocs.pm/elixir/Kernel.html#length/1"><code class="inline">length/1</code></a> of <code class="inline">list</code>.</p>
+
+  </section>
+</div>
+<div class="detail" id="byte_to_int/1">
   
   
   <div class="detail-header">
@@ -174,16 +216,88 @@
     </a>
     <span class="signature">byte_to_int(byte)</span>
     
-      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017/day1.ex#L73" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017/day1.ex#L108" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
     
     
     
+      <div class="specs">
+        
+          <pre>byte_to_int(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">char</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()</pre>
+        
+      </div>
+    
   </div>
   <section class="docstring">
+    <p>Convert a utf8 byte representation of an integer into the integer it represents.</p>
+
+  </section>
+</div>
+<div class="detail" id="compare_digits/2">
+  
+  
+  <div class="detail-header">
+    <a href="#compare_digits/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">compare_digits(digit_a, digit_b)</span>
     
+      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017/day1.ex#L129" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>compare_digits(digit_a :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>(), digit_b :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()</pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p>Compares two digits and if they are equal, returns their value. Otherwise returns <code class="inline">0</code>.</p>
+<p>See also <a href="#compare_digits/3"><code class="inline">compare_digits/3</code></a></p>
+
+  </section>
+</div>
+<div class="detail" id="compare_digits/3">
+  
+  
+  <div class="detail-header">
+    <a href="#compare_digits/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">compare_digits(digits, digit_a, index_b)</span>
+    
+      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017/day1.ex#L140" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+    
+    
+    
+      <div class="specs">
+        
+          <pre>compare_digits(
+  list :: [<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>(), ...],
+  digit_a :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>(),
+  index_b :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()
+) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()</pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    <p>Given a list, will compare <code class="inline">digit_a</code> with the digit at <code class="inline">index_b</code>, returning their value if equivleant and <code class="inline">0</code>
+otherwise.</p>
+<p>See <a href="#compare_digits/2"><code class="inline">compare_digits/2</code></a>, <a href="#at_wraparound/2"><code class="inline">at_wraparound/2</code></a></p>
+
   </section>
 </div>
 <div class="detail" id="run/0">
@@ -196,7 +310,7 @@
     </a>
     <span class="signature">run()</span>
     
-      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017/day1.ex#L4" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017/day1.ex#L9" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -205,86 +319,7 @@
     
   </div>
   <section class="docstring">
-    
-  </section>
-</div>
-<div class="detail" id="solve/1">
-  
-  
-  <div class="detail-header">
-    <a href="#solve/1" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <span class="signature">solve(digits)</span>
-    
-      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017/day1.ex#L46" class="view-source" rel="help" title="View Source">
-       <span class="icon-code" aria-hidden="true"></span>
-       <span class="sr-only">View Source</span>
-     </a>
-    
-    
-    
-      <div class="specs">
-        
-          <pre>solve(digits :: [<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>(), ...]) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()</pre>
-        
-      </div>
-    
-  </div>
-  <section class="docstring">
-    <p>Circularly find the sum of all digits that match the next digit in the list</p>
-
-  </section>
-</div>
-<div class="detail" id="solve/2">
-  
-  
-  <div class="detail-header">
-    <a href="#solve/2" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <span class="signature">solve(arg1, sum)</span>
-    
-      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017/day1.ex#L57" class="view-source" rel="help" title="View Source">
-       <span class="icon-code" aria-hidden="true"></span>
-       <span class="sr-only">View Source</span>
-     </a>
-    
-    
-    
-  </div>
-  <section class="docstring">
-    
-  </section>
-</div>
-<div class="detail" id="solve_str/1">
-  
-  
-  <div class="detail-header">
-    <a href="#solve_str/1" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <span class="signature">solve_str(str)</span>
-    
-      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017/day1.ex#L63" class="view-source" rel="help" title="View Source">
-       <span class="icon-code" aria-hidden="true"></span>
-       <span class="sr-only">View Source</span>
-     </a>
-    
-    
-    
-      <div class="specs">
-        
-          <pre>solve_str(str :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">charlist</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()</pre>
-        
-      </div>
-    
-  </div>
-  <section class="docstring">
-    <p>Circularly find the sum of all digits that match the next digit in the string of digits</p>
+    <p>Run the Day 1 puzzle to gather input from the user.</p>
 
   </section>
 </div>
@@ -298,7 +333,7 @@
     </a>
     <span class="signature">str_to_int_list(str)</span>
     
-      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017/day1.ex#L68" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/bericp1/advent-of-code-2017/blob/master/lib/advent_of_code2017/day1.ex#L99" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -313,7 +348,8 @@
     
   </div>
   <section class="docstring">
-    
+    <p>Convert a string (charlist) to a list of integers.</p>
+
   </section>
 </div>
 
