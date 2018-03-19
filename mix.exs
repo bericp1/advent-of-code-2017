@@ -38,7 +38,7 @@ defmodule AdventOfCode2017.MixProject do
 
   defp docs do
     [
-      main: "AdventOfCode2017",
+      main: "README",
       extras: ["README.md"],
       output: "docs"
     ]
